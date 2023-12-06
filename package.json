@@ -7,7 +7,7 @@
   "scripts": {
     "ng": "ng",
     "start": "cd Backend && nodemon server.js",
-    "build": "npm install --force && ng build keepNotes"
+    "build": "npm install --force && ng build keepNotes "
   },
   "private": true,
   "dependencies": {
