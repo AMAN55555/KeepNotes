@@ -1,5 +1,6 @@
 const express = require('express');
 require("./config");
+const path = require('path');
 require('dotenv').config();
 const User = require('./Models/users');
 const Note = require('./Models/notes');
