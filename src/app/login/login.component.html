@@ -1,0 +1,22 @@
+<div id="body">
+    <div id="loginBox">
+        <h3>Login</h3>
+
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+
+            <input type="text" #usernameInput="ngModel" name="username" id="username" placeholder="Enter the UserName"
+                [(ngModel)]="username" required>
+            <p *ngIf="usernameInput.dirty && usernameInput.errors?.['required']" class="text-danger">UserName should not
+                be empty</p>
+
+            <input type="password" #passwordInput="ngModel" name="password" id="password" placeholder="Enter the Password"
+                [(ngModel)]="password" required minlength="6" password>
+            <p *ngIf="passwordInput.dirty && passwordInput.errors?.['required']" class="text-danger">Password should not
+                be empty</p>
+
+            <button>Save</button>
+
+        </form>
+
+    </div>
+</div>

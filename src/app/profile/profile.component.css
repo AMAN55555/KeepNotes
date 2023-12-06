@@ -1,0 +1,84 @@
+#body{
+    background-image: url('../../assets/back.jpg'); background-size: cover; background-repeat: no-repeat;height: 100vh;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#profileBox{
+    background-color: rgb(233 233 233 / 65%);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 43px;
+}
+img{
+    border-radius:100%;
+    margin: 0px 10px;
+    width: 200px;
+    height: 200px;
+}
+#profile-data{
+    padding: 30px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    border-radius: 43px;
+    margin: 10px;
+}
+#profile-data div{
+    width: 100%;
+    padding: 10px 0px;
+}
+input{
+    border: none;
+    padding: 5px 8px;
+    width: 90%;
+    font-family: monospace;
+    outline: none;
+}
+label{
+    display: flex;
+    justify-content: right;
+    transform: translate(-21px,-17px);
+    cursor: pointer;
+}
+input[type="file"] {
+    display: none;
+}
+#username{
+    font-size: 30px;
+    width: 94%;
+}
+button{
+    color: whitesmoke;
+    background-color: rgb(38, 36, 36);
+    border: none;
+    border-radius: 8px;
+    padding: 6px 8px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px white inset;
+    -webkit-text-fill-color: black;
+}
+
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 50px white inset;
+    -webkit-text-fill-color: black;
+}
+
+p{
+    color: red;
+}
+
+@media only screen and (max-width: 815px) {
+    #profileBox{
+        flex-direction: column;
+        padding: 10px 0px;
+    }
+}

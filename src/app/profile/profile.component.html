@@ -1,0 +1,54 @@
+<div id="body">
+    <div id="profileBox">
+        <div id="profile-img">
+            <img src="../../assets/profile.jpg" alt="profile-img" *ngIf="!profileImg">
+            <!-- <img src="../../assets/profile.jpg" alt="profile-img" *ngIf="!user.userImage && !isImageSelected"> -->
+
+            <img [src]="profileImg" *ngIf="!isImageSelected && profileImg" alt="image">
+            <img [src]="profileImg" *ngIf="isImageSelected" alt="image">
+
+            <label for="userImage" *ngIf="isImageEditVisible">
+                <i class="fa-regular fa-pen-to-square fa-sm" style="color: #353536;"></i>
+            </label>
+            <input type="file" name="userImage" id="userImage" [readonly]="isImageEditVisible"
+                (change)="onFileSelected($event)">
+            <button *ngIf="!isImageEditVisible" (click)="SaveImage()" style="transform: translate(-29px, 3px);">Save</button>
+
+        </div>
+        <form id="profile-data" #profileForm="ngForm">
+            <input type="text" [(ngModel)]="username" id="username" name="username" readonly>
+
+            <div id="name">
+                <i class="fa-solid fa-user fa-sm" style="color: #262424;"></i><input type="text" #nameInput="ngModel"
+                    name="name" placeholder="Enter the Name" [(ngModel)]="name" required
+                    [readonly]="isEditProfileVisible">
+            </div>
+            <p *ngIf="nameInput.dirty && nameInput.errors?.['required']" class="text-danger">Name should not
+                be empty</p>
+
+            <div id="email">
+                <i class="fa-solid fa-envelope fa-sm" style="color: #262424;"></i>
+                <input type="email" #emailInput="ngModel" name="email" placeholder="Enter the Email" [(ngModel)]="email"
+                    [readonly]="isEditProfileVisible" required email
+                    pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            </div>
+            <p *ngIf="emailInput.dirty && emailInput.errors?.['required']" class="text-danger">Email should not
+                be empty</p>
+            <p *ngIf="emailInput.dirty && emailInput.errors?.['pattern']" class="text-danger">Invalid email format</p>
+
+            <div id="phone">
+                <i class="fa-solid fa-phone fa-sm" style="color: #262424;"></i>
+                <input type="tel" #phoneInput="ngModel" name="phone" placeholder="Enter the Phone number"
+                    [(ngModel)]="phone" [readonly]="isEditProfileVisible" required pattern="[0-9]{10}">
+            </div>
+            <p *ngIf="phoneInput.dirty && phoneInput.errors?.['required']" class="text-danger">Phone should not
+                be empty</p>
+            <p *ngIf="phoneInput.dirty && phoneInput.errors?.['pattern']" class="text-danger">
+                Phone No. should be 10 digits long and contain only numeric characters
+            </p>
+
+            <button (click)="editProfile()" *ngIf="isEditProfileVisible">Edit Profile</button>
+            <button (click)="updateProfile(profileForm)" *ngIf="!isEditProfileVisible">Save</button>
+        </form>
+    </div>
+</div>

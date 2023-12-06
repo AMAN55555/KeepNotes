@@ -1,0 +1,45 @@
+<div id="body">
+    <div id="outer-box">
+        <div class="card" *ngFor="let note of myNotes" id={{note._id}}
+            (click)="smallWindow( note._id )">
+            <div class="close" id="close{{note._id}}" (click)="close(note._id)">X</div>
+            <div class="card-box" id="card-box{{note._id}}">
+                <div id="changes">
+                    <i class="fa-regular fa-pen-to-square fa-sm" style="color: #353536;" (click)="edit( note._id )"></i>
+                    <i class="fa-solid fa-trash fa-sm" style="color: #353536;" (click)="delete( note._id )"></i>
+                </div>
+                <div style="height: 30%;">
+                    <textarea class="textarea hideScrollBar" type="text" #titleInput="ngModel" name="title" id="title" placeholder="Enter the Title"
+                    [(ngModel)]="note.title" required readonly></textarea>
+                </div>
+                <div style="height: 75%;">
+                    <textarea class="textarea hideScrollBar" type="text" #noteInput="ngModel" name="note" id="note" placeholder="Enter the Note"
+                    [(ngModel)]=" note.note" required cols="30" rows="10" readonly>Hii</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="editNoteBody">
+    <div id="editNoteBox" *ngFor="let note of myNotes">
+        <div class="updateClose" (click)="closeEdit()">X</div>
+        
+        <form #updateForm="ngForm" (ngSubmit)="UpdateNote(updateForm)">
+
+            <input type="text" #titleInput="ngModel" name="title" id="title" placeholder="Enter the Title"
+                [(ngModel)]="note.title" required>
+            <p *ngIf="titleInput.dirty && titleInput.errors?.['required']" class="text-danger">Title should not
+                be empty</p>
+
+            <textarea type="text" #noteInput="ngModel" name="note" id="note" placeholder="Enter the Note"
+                [(ngModel)]="note.note" required cols="30" rows="10"></textarea>
+            <p *ngIf="noteInput.dirty && noteInput.errors?.['required']" class="text-danger">Note should not
+                be empty</p>
+
+            <button>Update</button>
+
+        </form>
+    </div>
+</div>
+

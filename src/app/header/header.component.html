@@ -1,0 +1,16 @@
+<nav>
+    <ul id="navContent">
+        <li routerLink="/" id="title"><img src="../../assets/logo.png" alt="">KeepNotes</li>
+        <li routerLink="/MyNotes" *ngIf="username">MyNotes</li>
+        <li routerLink="/AddNotes" *ngIf="username">AddNotes</li>
+        <li routerLink="/Profile" *ngIf="username">Profile</li>
+        <li routerLink="/Register" *ngIf="!username">Register</li>
+        <li routerLink="/Login" *ngIf="!username">Login</li>
+        <li (click)="LogOut()" *ngIf="username">LogOut</li>
+        <li id="ham" (click)="openNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,44 @@
+<div id="body">
+    <div id="registerBox">
+        <h3>Register</h3>
+
+        <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+
+            <input type="text" #nameInput="ngModel" name="name" id="name" placeholder="Enter the Name"
+                [(ngModel)]="name" required>
+            <p *ngIf="nameInput.dirty && nameInput.errors?.['required']" class="text-danger">Name should not
+                be empty</p>
+
+            <input type="text" #usernameInput="ngModel" name="username" id="username" placeholder="Enter the UserName"
+                [(ngModel)]="username" required username>
+            <p *ngIf="usernameInput.dirty && usernameInput.errors?.['required']" class="text-danger">UserName should not
+                be empty</p>
+
+            <input type="email" #emailInput="ngModel" name="email" id="email" placeholder="Enter the Email"
+                [(ngModel)]="email" required email pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$">
+            <p *ngIf="emailInput.dirty && emailInput.errors?.['required']" class="text-danger">Email should not
+                be empty</p>
+            <p *ngIf="emailInput.dirty && emailInput.errors?.['pattern']" class="text-danger">Invalid email format</p>
+
+            <input type="tel" #phoneInput="ngModel" name="phone" id="phone" placeholder="Enter the Phone number"
+                [(ngModel)]="phone" required pattern="[0-9]{10}">
+            <p *ngIf="phoneInput.dirty && phoneInput.errors?.['required']" class="text-danger">Phone should not
+                be empty</p>
+            <p *ngIf="phoneInput.dirty && phoneInput.errors?.['pattern']" class="text-danger">
+                Phone No. should be 10 digits long and contain only numeric characters
+            </p>
+
+            <input type="password" #passwordInput="ngModel" name="password" id="password"
+                placeholder="Enter the Password" [(ngModel)]="password" required minlength="6" password>
+            <p *ngIf="passwordInput.dirty && passwordInput.errors?.['required']" class="text-danger">Password should not
+                be empty</p>
+            <p *ngIf="passwordInput.dirty && passwordInput.errors?.['minlength']" class="text-danger">
+                Password must be at least 6 characters
+            </p>
+
+            <button>Save</button>
+
+        </form>
+
+    </div>
+</div>
