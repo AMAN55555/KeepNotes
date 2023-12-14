@@ -1,5 +1,6 @@
 #body{
-    background-image: url('../../assets/back.jpg'); background-size: cover; background-repeat: no-repeat;height: 100vh;;
+    background-image: url('../../assets/back.jpg'); background-size: cover; background-repeat: no-repeat;height: 100vh;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +29,7 @@ input,textarea{
     background-color: white;
     color: black;
     padding: 10px 8px;
-    margin: 7px 50px;
+    margin: 7px 0px;
     border: none;
     font-family: monospace;
 }

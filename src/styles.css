@@ -9,7 +9,7 @@
     right: 20px;
     position: absolute;
     font-family: monospace;
-    color: rgb(231, 43, 43)(149, 54, 54);
+    color:white;
 }
 .toast-success{
     padding: 6px 10px;
@@ -19,5 +19,5 @@
 .toast-error{
     padding: 6px 10px;
     border-radius: 8px;
-    background-color: rgb(231, 43, 43)(149, 54, 54);
+    background-color: rgb(196, 32, 32);
 }

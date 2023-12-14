@@ -2,7 +2,7 @@
     <div id="outer-box">
         <div class="card" *ngFor="let note of myNotes" id={{note._id}}
             (click)="smallWindow( note._id )">
-            <div class="close" id="close{{note._id}}" (click)="close(note._id)">X</div>
+            <div class="close" id="close{{note._id}}" (click)="close(note._id)">x</div>
             <div class="card-box" id="card-box{{note._id}}">
                 <div id="changes">
                     <i class="fa-regular fa-pen-to-square fa-sm" style="color: #353536;" (click)="edit( note._id )"></i>
@@ -23,7 +23,7 @@
 
 <div id="editNoteBody">
     <div id="editNoteBox" *ngFor="let note of myNotes">
-        <div class="updateClose" (click)="closeEdit()">X</div>
+        <div class="updateClose" (click)="closeEdit()">x</div>
         
         <form #updateForm="ngForm" (ngSubmit)="UpdateNote(updateForm)">
 
